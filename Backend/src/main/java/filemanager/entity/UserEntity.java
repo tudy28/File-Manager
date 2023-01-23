@@ -18,5 +18,8 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
- //   private FolderEntity rootFolder;
+
+    @OneToOne
+    @JoinColumn(name="root_folder_id")
+    private FolderEntity rootFolder;
 }
