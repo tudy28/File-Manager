@@ -1,5 +1,6 @@
 package filemanager.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="root_folder_id")
     private FolderEntity rootFolder;
 }
