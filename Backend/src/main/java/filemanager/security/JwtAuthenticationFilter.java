@@ -1,7 +1,7 @@
 package filemanager.security;
 
 import com.sun.istack.NotNull;
-import filemanager.exceptions.JwtAuthenticationException;
+import filemanager.utils.exceptions.JwtAuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,11 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * jwt filter for every request to get the user's authentication
- *
- * @author cvisan
- */
+
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired

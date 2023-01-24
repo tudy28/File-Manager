@@ -10,11 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-/**
- * the security configuration for local
- *
- * @author cvisan
- */
 
 @Configuration
 @Order(1000)
@@ -26,7 +21,7 @@ public class SecurityConfigDefault extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll()// for
-                .antMatchers("/auth/**","/notification/**").permitAll()//
+                .antMatchers("/auth/**").permitAll()//
                 .and()
                 .authorizeRequests()
                 .antMatchers("/**")//

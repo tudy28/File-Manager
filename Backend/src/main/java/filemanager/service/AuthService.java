@@ -1,8 +1,11 @@
 package filemanager.service;
 
-import filemanager.dto.UserLoginRequestDto;
-import filemanager.dto.UserLoginResponseDto;
+import filemanager.dto.TokenDto;
+import filemanager.dto.UserRequestDto;
 
 public interface AuthService {
-    UserLoginResponseDto checkUserCredentials(UserLoginRequestDto userLoginRequestDto);
+    TokenDto checkUserCredentials(UserRequestDto userRequestDto);
+
+    void registerUser(UserRequestDto user);
+
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class UserLoginResponseDto {
-    private  Long id;
+public class FolderIdNameDto {
+    private Long id;
+    private String name;
 }

@@ -1,14 +1,21 @@
 package filemanager.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @Table(name = "users")
+@NoArgsConstructor
 @Entity
 public class UserEntity {
+
+    public UserEntity(String username,String password,FolderEntity rootFolder){
+        this.username=username;
+        this.password=password;
+        this.rootFolder=rootFolder;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

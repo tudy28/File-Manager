@@ -8,11 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author cvisan (catalin.visan@mhp.com)
- * This is only for local development to allow cookies to be set "cross-domain", which just means different ports
- * of the same localhost
- */
 
 @Configuration
 public class CustomCorsFilter implements Filter {

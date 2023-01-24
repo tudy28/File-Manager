@@ -1,15 +1,20 @@
 package filemanager.entity;
 
-import lombok.Builder;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Table(name = "folders")
+@NoArgsConstructor
 @Entity
 public class FolderEntity {
+
+    public FolderEntity(String name){
+        this.name=name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "folder_id")

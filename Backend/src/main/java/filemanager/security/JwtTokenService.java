@@ -1,6 +1,6 @@
 package filemanager.security;
 
-import filemanager.exceptions.JwtAuthenticationException;
+import filemanager.utils.exceptions.JwtAuthenticationException;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,13 +17,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
-
-/**
- * the jwt token service creates new token and validates the token given from
- * frontend
- *
- * @author cvisan
- */
 
 @Service
 @Slf4j
@@ -99,6 +92,7 @@ public class JwtTokenService {
 
         jwtToken = Jwts.builder()//
                 .claim(CLAIM_USER, userId)//
+                .claim(CLAIM_ROLES,"User")
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))//
                 .signWith(SignatureAlgorithm.HS512, secret.getBytes(StandardCharsets.UTF_8))//
                 .compact();//
