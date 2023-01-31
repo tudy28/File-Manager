@@ -1,8 +1,12 @@
 package filemanager.service;
 
-import filemanager.dto.FolderResponseDto;
+import filemanager.dto.*;
 
 public interface FolderService {
 
-    FolderResponseDto findRootFolder(Long userId);
+    FolderResponseDto findFolderById(Long userId);
+
+    FolderIdNameDto createNewFolder(FolderCreateRequestDto folderCreateRequestDto);
+    FolderIdNameDto renameFolder(FolderIdNameDto folderIdNameDto);
+    void deleteFolder(Long id);
 }
