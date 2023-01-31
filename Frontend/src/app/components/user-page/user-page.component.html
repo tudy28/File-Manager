@@ -1,1 +1,61 @@
-<p>user-page works!</p>
+<div class="container">
+  <button mat-raised-button (click)="goToParentDirectory()"
+          *ngIf="this.currentFolder.parentFolder!=null">
+    <mat-icon>subdirectory_arrow_left</mat-icon>
+    Go to Parent Directory
+  </button>
+
+
+  <mat-list>
+    <div mat-subheader *ngIf="this.currentFolder.childFolders.length!=0">Folders</div>
+    <mat-list-item *ngFor="let folder of this.currentFolder.childFolders">
+      <mat-icon mat-list-icon>folder</mat-icon>
+        <p mat-line class="folder-name-container" (click)="accessChildFolder(folder.id)">{{folder.name}}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Rename Folder</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete Folder</span>
+          </button>
+        </mat-menu>
+    </mat-list-item>
+    <div mat-subheader *ngIf="this.currentFolder.files.length!=0">Files</div>
+    <mat-list-item *ngFor="let file of this.currentFolder.files">
+      <mat-icon mat-list-icon>insert_drive_file</mat-icon>
+      <p mat-line>{{file.name}}</p>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Rename File</span>
+        </button>
+        <button mat-menu-item (click)="deleteFile(file)">
+          <mat-icon>delete</mat-icon>
+          <span>Delete File</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>cloud_download</mat-icon>
+          <span>Download File</span>
+        </button>
+      </mat-menu>
+    </mat-list-item>
+  </mat-list>
+
+  <button mat-raised-button (click)="createNewFolder()">
+    <mat-icon>create_new_folder</mat-icon>
+    Create New Folder
+  </button>
+
+  <button mat-raised-button (click)="uploadFile()">
+    <mat-icon> attach_file</mat-icon>
+    Upload a File
+  </button>
+</div>

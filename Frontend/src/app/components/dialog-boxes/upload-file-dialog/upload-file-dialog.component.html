@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+  <div class="parent-form">
+  <p>What is the name of the file?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>File Name</mat-label>
+      <input matInput [(ngModel)]="data.fileName">
+    </mat-form-field>
+    <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none">
+    <div class="button-wrapper">
+      <button mat-mini-fab (click)="fileInput.click()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Upload the File</button>
+</div>

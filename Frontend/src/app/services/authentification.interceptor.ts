@@ -15,7 +15,6 @@ export class AuthentificationInterceptor implements HttpInterceptor{
       const jwt = this.cookieService.get("Token");
       const headers: any = {"app-auth": jwt}
       req = req.clone({setHeaders: headers});
-      console.log("HEADERS ARE SET!")
     }
     return next.handle(req);
 
