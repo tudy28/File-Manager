@@ -15,11 +15,11 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item (click)="renameFolder(folder)">
             <mat-icon>edit</mat-icon>
             <span>Rename Folder</span>
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item (click)="deleteFolder(folder)">
             <mat-icon>delete</mat-icon>
             <span>Delete Folder</span>
           </button>
@@ -33,7 +33,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="renameFile(file)">
           <mat-icon>edit</mat-icon>
           <span>Rename File</span>
         </button>
@@ -41,7 +41,7 @@
           <mat-icon>delete</mat-icon>
           <span>Delete File</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="downloadFile(file)">
           <mat-icon>cloud_download</mat-icon>
           <span>Download File</span>
         </button>
@@ -49,13 +49,15 @@
     </mat-list-item>
   </mat-list>
 
-  <button mat-raised-button (click)="createNewFolder()">
+  <div class="button-container">
+  <button mat-raised-button (click)="createNewFolder()" style="width: 175px">
     <mat-icon>create_new_folder</mat-icon>
     Create New Folder
   </button>
 
-  <button mat-raised-button (click)="uploadFile()">
+  <button mat-raised-button (click)="uploadFile()" style="width: 175px">
     <mat-icon> attach_file</mat-icon>
     Upload a File
   </button>
+  </div>
 </div>

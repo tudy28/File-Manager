@@ -5,5 +5,11 @@
 
 
 .container{
-  width: 25%;
+  width: 30%;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px
 }

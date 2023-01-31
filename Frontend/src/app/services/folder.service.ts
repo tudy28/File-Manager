@@ -13,6 +13,8 @@ const bodyUrl="http://localhost:8080";
 const GET_FOLDER = bodyUrl+"/folders/";
 const CREATE_NEW_FOLDER=bodyUrl+"/folders/new-folder";
 const UPLOAD_NEW_FILE=bodyUrl+"/files/upload-file";
+const RENAME_FOLDER=bodyUrl+"/folders/rename"
+const DELETE_FOLDER = bodyUrl + "/folders/";
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +37,11 @@ export class FolderService {
     return this.httpClient.post<File>(UPLOAD_NEW_FILE,newFileObject);
   }
 
+  renameFolder(newFolderObject: any):Observable<Folder> {
+    return this.httpClient.put<Folder>(RENAME_FOLDER,newFolderObject);
+  }
+
+  public deleteFolderById(folderId: number): Observable<any> {
+    return this.httpClient.delete<any>(DELETE_FOLDER+folderId);
+  }
 }

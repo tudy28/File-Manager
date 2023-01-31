@@ -20,6 +20,7 @@ import { NewFolderDialogComponent } from './components/dialog-boxes/new-folder-d
 import {UploadFileDialogComponent} from "./components/dialog-boxes/upload-file-dialog/upload-file-dialog.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {ConfirmationDialogComponent} from "./components/dialog-boxes/confirmation-dialog/confirmation-dialog.component";
+import { InputDialogComponent } from './components/dialog-boxes/input-dialog/input-dialog.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {ConfirmationDialogComponent} from "./components/dialog-boxes/confirmatio
     UserPageComponent,
     NewFolderDialogComponent,
     UploadFileDialogComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    InputDialogComponent
   ],
     imports: [
         BrowserModule,
