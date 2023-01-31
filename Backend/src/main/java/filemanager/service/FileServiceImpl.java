@@ -1,9 +1,6 @@
 package filemanager.service;
 
-import filemanager.dto.FileDto;
-import filemanager.dto.FileRenameDto;
-import filemanager.dto.FileUploadRequestDto;
-import filemanager.dto.FolderIdNameDto;
+import filemanager.dto.*;
 import filemanager.entity.FileEntity;
 import filemanager.entity.FolderEntity;
 import filemanager.repository.FileRepository;
@@ -34,12 +31,11 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public FileDto getFileById(Long id) {
+    public FileContentDto getFileContentById(Long id) {
         Optional<FileEntity> fileOptional = fileRepository.findById(id);
         if (fileOptional.isPresent()) {
             FileEntity file = fileOptional.get();
-            FolderIdNameDto folderIdNameDto = new FolderIdNameDto(file.getParentFolder().getId(), file.getParentFolder().getName());
-            return new FileDto(file.getId(), file.getName(), file.getContent(), folderIdNameDto);
+            return new FileContentDto(file.getContent());
         }
         return null;
     }

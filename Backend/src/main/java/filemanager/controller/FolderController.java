@@ -42,7 +42,7 @@ public class FolderController {
     }
 
     @PutMapping("/rename")
-    public ResponseEntity<FolderIdNameDto> renameFile(@RequestBody FolderIdNameDto folderIdNameDto){
+    public ResponseEntity<FolderIdNameDto> renameFolder(@RequestBody FolderIdNameDto folderIdNameDto){
         try {
             return new ResponseEntity<>(folderService.renameFolder(folderIdNameDto), HttpStatus.OK);
         }
@@ -52,8 +52,8 @@ public class FolderController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteFile(@PathVariable Long id){
+    public ResponseEntity<String> deleteFolder(@PathVariable Long id){
         folderService.deleteFolder(id);
-        return new ResponseEntity<String>("Folder with id " +id+" and all its subfolders and files deleted", HttpStatus.OK);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 }

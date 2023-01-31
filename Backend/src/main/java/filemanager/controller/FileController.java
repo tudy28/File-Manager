@@ -1,9 +1,6 @@
 package filemanager.controller;
 
-import filemanager.dto.FileDto;
-import filemanager.dto.FileRenameDto;
-import filemanager.dto.FileUploadRequestDto;
-import filemanager.dto.FolderResponseDto;
+import filemanager.dto.*;
 import filemanager.service.FileService;
 import filemanager.utils.exceptions.FileDoesNotExistException;
 import filemanager.utils.exceptions.FolderDoesNotExistException;
@@ -33,12 +30,12 @@ public class FileController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<FileDto> getFileById(@PathVariable Long id){
+    @GetMapping("/{id}/content")
+    public ResponseEntity<FileContentDto> getFileContent(@PathVariable Long id){
         try {
-            return new ResponseEntity<>(fileService.getFileById(id), HttpStatus.OK);
+            return new ResponseEntity<>(fileService.getFileContentById(id), HttpStatus.OK);
         }
-        catch (FolderDoesNotExistException ex){
+        catch (FileDoesNotExistException ex){
             return new ResponseEntity(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
@@ -58,4 +55,5 @@ public class FileController {
         fileService.deleteFile(id);
         return new ResponseEntity<String>(HttpStatus.OK);
     }
+
 }
